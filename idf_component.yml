@@ -1,0 +1,5 @@
+version: "0.1.0"
+description: "Type-safe spatial units library (length, area, volume) modeled after std::chrono"
+url: "https://github.com/cleishm/spatial-cpp"
+repository: "https://github.com/cleishm/spatial-cpp.git"
+license: "MIT"
