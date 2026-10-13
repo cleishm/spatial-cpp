@@ -26,7 +26,6 @@ target_compile_options(spatial INTERFACE "$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 
 target_include_directories(spatial INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:include>
 )
 
 target_compile_features(spatial INTERFACE cxx_std_20)
