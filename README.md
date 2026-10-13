@@ -20,7 +20,7 @@ A type-safe, header-only C++20 library for spatial units, modeled after `std::ch
 ## Requirements
 
 - C++20 compiler (GCC 12+, Clang 15+, MSVC 19.30+)
-- **MSVC users:** The `/utf-8` flag is required (the source contains the unit symbols µ, ² and ³)
+- **MSVC users:** The CMake target adds `/utf-8` automatically (the headers contain UTF-8 unit symbols). Projects that do not use the CMake target (e.g. a plain include path) must add `/utf-8` themselves.
 - **GCC < 14**, which includes the ESP-IDF toolchains before GCC 14 (e.g. the GCC 12 of ESP-IDF 5.1 and the esp-13.2 toolchains), cannot lex non-ASCII literal suffixes, so `_µm` and `_µL` are unavailable there; use the ASCII alternatives `_um` and `_uL`. `SPATIAL_HAS_UTF8_LITERALS` reports which applies.
 
 ## Installation
@@ -32,7 +32,7 @@ include(FetchContent)
 FetchContent_Declare(
     spatial
     GIT_REPOSITORY https://github.com/cleishm/spatial-cpp.git
-    GIT_TAG v0.1.0
+    GIT_TAG v0.1.1
 )
 FetchContent_MakeAvailable(spatial)
 
@@ -390,7 +390,7 @@ The library can be used as an ESP-IDF component. Add it to your project's
 
 ```yaml
 dependencies:
-  cleishm/spatial: "^0.1.0"
+  cleishm/spatial: "^0.1.1"
 ```
 
 `std::format` support is controlled via `CONFIG_SPATIAL_STD_FORMAT` in
