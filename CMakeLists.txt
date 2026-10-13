@@ -7,7 +7,7 @@ if(ESP_PLATFORM)
 endif()
 
 project(spatial
-    VERSION 0.1.0
+    VERSION 0.1.1
     DESCRIPTION "Type-safe spatial units library (length, area, volume) modeled after std::chrono"
     HOMEPAGE_URL "https://github.com/cleishm/spatial-cpp"
     LANGUAGES CXX
@@ -20,6 +20,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Main library target (header-only)
 add_library(spatial INTERFACE)
 add_library(spatial::spatial ALIAS spatial)
+
+# The headers contain UTF-8 unit symbols; MSVC needs /utf-8 to read them correctly.
+target_compile_options(spatial INTERFACE "$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 
 target_include_directories(spatial INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
