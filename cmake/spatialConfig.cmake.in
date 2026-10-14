@@ -1,5 +1,7 @@
 @PACKAGE_INIT@
 
+message(DEPRECATION "@SPATIAL_DEPRECATION_MESSAGE@")
+
 include("${CMAKE_CURRENT_LIST_DIR}/spatialTargets.cmake")
 
 check_required_components(spatial)
